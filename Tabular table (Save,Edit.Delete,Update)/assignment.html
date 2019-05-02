@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1> Student Detail</h1>
+
+    <table id="student-detail">
+        <thead>
+            <tr>
+                <td id=col1>S.no</td>
+                <td>Name</td>
+                <td>Student-ID</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody id='tbody'>
+
+        </tbody>
+    </table>
+
+    <script>
+
+        var myNum = [1,2,3,4];
+        var myNames = ["Saad" , "Bilal", "Hadi", "Ali"];
+        var myClass = [45,65,22,19];
+        var ref = document.getElementById('tbody')
+
+        for ( let i=0; i<myNames.length; i++){
+
+            var createRow1 = document.createElement('tr')
+            createRow1.setAttribute('id', i)
+            // Index
+            
+            var createCol1 = document.createElement('td')
+            var colData1 = document.createTextNode(myNum[i])
+            createCol1.appendChild(colData1)
+            createRow1.appendChild(createCol1)
+
+            // Name
+
+            var createCol2 = document.createElement('td')
+            var colData2 = document.createTextNode(myNames[i])
+            createCol2.appendChild(colData2)
+
+            // Class
+
+            var createCol3 = document.createElement('td')
+            var colData3 = document.createTextNode(myClass[i])
+            createCol3.appendChild(colData3)
+
+            // Delete Button
+
+            var createCol4 = document.createElement('td')
+            var createDelBtn = document.createElement('button')
+            createDelBtn.innerHTML = "Delete"
+            createCol4.appendChild(createDelBtn)
+
+            createDelBtn.addEventListener('click', function(){
+                deleteRow(i)
+            })
+
+            
+            createRow1.appendChild(createCol2)
+            createRow1.appendChild(createCol3)
+            createRow1.appendChild(createCol4)
+
+
+            ref.appendChild(createRow1)
+        }
+
+
+        function deleteRow(rowId){
+            var deleteTr = document.getElementById(rowId)
+            deleteTr.parentNode.removeChild(deleteTr)
+        }
+
+        
+
+
+
+
+    
+    </script>
+
+</body>
+
+</html>
